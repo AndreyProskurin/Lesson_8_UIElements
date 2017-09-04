@@ -69,11 +69,11 @@
 - (void)keyboardDidShow:(NSNotification *)notification {
     NSValue *value = [notification.userInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
     CGRect keyboardframe = [value CGRectValue];
-    self.contentViewTopConstraint.constant = 325 - keyboardframe.size.height;
+    self.contentViewTopConstraint.constant = 325.f - keyboardframe.size.height;
 }
 
 - (void)keyboardDidHide:(NSNotification *)notification {
-    self.contentViewTopConstraint.constant = 206.0f;
+    self.contentViewTopConstraint.constant = 206.f;
 }
 
 #pragma mark - textField -
