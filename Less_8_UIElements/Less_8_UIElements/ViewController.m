@@ -8,103 +8,133 @@
 
 #import "ViewController.h"
 
-typedef struct {
-    
-    CGFloat weight;
-    NSUInteger age;
-    
-} Person;
+
 
 @interface ViewController () <UITextFieldDelegate, UITextViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UILabel *infoLabel;
+
+@property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UITextField *confirmPasswordTextField;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewTopConstraint;
+@property (strong, nonatomic) NSArray *arrayOfTextFields;
 
 @end
 
 @implementation ViewController
 
+- (IBAction)backgroundTapped:(UIView *)sender {
+    [self.view endEditing:YES];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.arrayOfTextFields = @[self.firstNameTextField,
+                               self.lastNameTextField,
+                               self.emailTextField,
+                               self.phoneNumberTextField,
+                               self.passwordTextField,
+                               self.confirmPasswordTextField];
+
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
+#pragma mark - Keyboard -
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
-    NSString *someString = @"I will be iOS developer";
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidShow:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
     
-    NSRange range = NSMakeRange(2, 4);
-    NSString *resultString = [someString substringWithRange:range];
-    NSLog(@"%@", resultString);
-    
-    Person person;
-    person.age = 20;
-    person.weight = 76;
-    
-    if (textField.tag == 5) {
-        
-        CGRect frame = textField.frame;
-        
-        frame.origin.y = self.emailTextField.frame.origin.y + self.emailTextField.frame.size.height + 40;
-        
-        textField.frame = frame;
-    }
-    
-    
-    
-    NSLog(@"\ntextFieldDidBeginEditing\n");
-    if (textField.tag == 5) {
-        textField.secureTextEntry = YES;
-    }
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidHide:)
+                                                 name:UIKeyboardDidHideNotification
+                                               object:nil];
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField {
-    NSLog(@"\ntextFieldDidEndEditing\n");
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+- (void)keyboardDidShow:(NSNotification *)notification {
+    NSValue *value = [notification.userInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    CGRect keyboardframe = [value CGRectValue];
+    self.contentViewTopConstraint.constant = 325 - keyboardframe.size.height;
+}
+
+- (void)keyboardDidHide:(NSNotification *)notification {
+    self.contentViewTopConstraint.constant = 206.0f;
+}
+
+#pragma mark - textField -
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    // автоматический переход между textField-ами
-    if (textField.tag == 5) {
-        [self.emailTextField becomeFirstResponder];
-    } else {
-        [self.passwordTextField becomeFirstResponder];
+    
+    for (NSUInteger i = 0; i < self.arrayOfTextFields.count - 1; i++) {
+        if ([textField isEqual:[self.arrayOfTextFields objectAtIndex:i]]) {
+            [[self.arrayOfTextFields objectAtIndex:i+1] becomeFirstResponder];
+        } else {
+            [textField resignFirstResponder];
+        }
+
     }
-    NSLog(@"\ntextFieldShouldReturn\n");
-    [textField resignFirstResponder];
+    return NO;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    
     return YES;
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
-    if (textField.text.length < 5) {
+    
+    if (textField.tag == self.emailTextField.tag && ![self.emailTextField.text containsString:@"@"]) {
+        self.infoLabel.text = @"E-mail is not correct.";
         return NO;
     }
-    NSLog(@"\ntextFieldShouldEndEditing\n");
-    return YES;
+    
+    if (textField.tag == self.confirmPasswordTextField.tag && !([self.confirmPasswordTextField.text isEqualToString:self.passwordTextField.text])) {
+        self.infoLabel.text = @"Passwords are not matched!";
+        return NO;
+    } else if ([self.confirmPasswordTextField.text isEqualToString:self.passwordTextField.text]) {
+        self.infoLabel.text = @"Passwords are matched!";
+        return YES;
+    } else {
+        return YES;
+    }
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    if (textField.tag == 5) {
-        if (self.emailTextField.text.length < 5) {
-            return NO;
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+    for (NSUInteger i = 0; i < self.arrayOfTextFields.count; i++) {
+        if ([textField isEqual:[self.arrayOfTextFields objectAtIndex:i]]) {
+            self.infoLabel.text = [NSString stringWithFormat:@"Enter your %@", [[self.arrayOfTextFields objectAtIndex:i] placeholder]];
+            
+            if ([textField isEqual:self.confirmPasswordTextField]) {
+                self.infoLabel.text = @"Confirm your password";
+            } else if ([textField isEqual:self.phoneNumberTextField]) {
+                self.infoLabel.text = @"Enter your phone number";
+            }
         }
+        
     }
-    NSLog(@"\ntextFieldShouldBeginEditing\n");
-    return YES;
+
 }
 
-// основной метод (вызывается во время редактирования [во время изменения текстового поля])
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+- (void)textFieldDidEndEditing:(UITextField *)textField {
     
-    NSLog(@"\nshouldChangeCharactersInRange\n");
-    
-    if ([string isEqualToString:@"+"]) {
-        return NO;
-    }
-    return YES;
 }
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    return YES;
-}
 
 
 @end
