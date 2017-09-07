@@ -7,21 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		321392BA1F60584900191983 /* CoffeeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321392B91F60584900191983 /* CoffeeListViewController.m */; };
-		321392BD1F60585900191983 /* CarListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321392BC1F60585900191983 /* CarListViewController.m */; };
 		322810731F59BD33007598B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 322810721F59BD33007598B7 /* main.m */; };
 		322810761F59BD33007598B7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 322810751F59BD33007598B7 /* AppDelegate.m */; };
 		322810791F59BD33007598B7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 322810781F59BD33007598B7 /* ViewController.m */; };
 		3228107C1F59BD33007598B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3228107A1F59BD33007598B7 /* Main.storyboard */; };
 		3228107E1F59BD33007598B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3228107D1F59BD33007598B7 /* Assets.xcassets */; };
 		322810811F59BD33007598B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3228107F1F59BD33007598B7 /* LaunchScreen.storyboard */; };
+		3298A8371F61A6B500097194 /* CarListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3298A8261F61A6B500097194 /* CarListViewController.m */; };
+		3298A8381F61A6B500097194 /* CarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3298A8291F61A6B500097194 /* CarModel.m */; };
+		3298A8391F61A6B500097194 /* CarContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3298A82C1F61A6B500097194 /* CarContentView.m */; };
+		3298A83A1F61A6B500097194 /* CoffeeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3298A8301F61A6B500097194 /* CoffeeListViewController.m */; };
+		3298A83B1F61A6B500097194 /* CoffeeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3298A8331F61A6B500097194 /* CoffeeModel.m */; };
+		3298A83C1F61A6B500097194 /* CoffeeContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3298A8361F61A6B500097194 /* CoffeeContentView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		321392B81F60584900191983 /* CoffeeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoffeeListViewController.h; sourceTree = "<group>"; };
-		321392B91F60584900191983 /* CoffeeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoffeeListViewController.m; sourceTree = "<group>"; };
-		321392BB1F60585900191983 /* CarListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarListViewController.h; sourceTree = "<group>"; };
-		321392BC1F60585900191983 /* CarListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarListViewController.m; sourceTree = "<group>"; };
 		3228106E1F59BD33007598B7 /* Less_8_UIElements.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Less_8_UIElements.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		322810721F59BD33007598B7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		322810741F59BD33007598B7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -32,6 +32,18 @@
 		3228107D1F59BD33007598B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		322810801F59BD33007598B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		322810821F59BD33007598B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3298A8251F61A6B500097194 /* CarListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarListViewController.h; sourceTree = "<group>"; };
+		3298A8261F61A6B500097194 /* CarListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarListViewController.m; sourceTree = "<group>"; };
+		3298A8281F61A6B500097194 /* CarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarModel.h; sourceTree = "<group>"; };
+		3298A8291F61A6B500097194 /* CarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarModel.m; sourceTree = "<group>"; };
+		3298A82B1F61A6B500097194 /* CarContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarContentView.h; sourceTree = "<group>"; };
+		3298A82C1F61A6B500097194 /* CarContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarContentView.m; sourceTree = "<group>"; };
+		3298A82F1F61A6B500097194 /* CoffeeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoffeeListViewController.h; sourceTree = "<group>"; };
+		3298A8301F61A6B500097194 /* CoffeeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoffeeListViewController.m; sourceTree = "<group>"; };
+		3298A8321F61A6B500097194 /* CoffeeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoffeeModel.h; sourceTree = "<group>"; };
+		3298A8331F61A6B500097194 /* CoffeeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoffeeModel.m; sourceTree = "<group>"; };
+		3298A8351F61A6B500097194 /* CoffeeContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoffeeContentView.h; sourceTree = "<group>"; };
+		3298A8361F61A6B500097194 /* CoffeeContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoffeeContentView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +76,8 @@
 		322810701F59BD33007598B7 /* Less_8_UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				3298A8231F61A6B500097194 /* CarMVC */,
+				3298A82D1F61A6B500097194 /* CoffeeMVC */,
 				322810741F59BD33007598B7 /* AppDelegate.h */,
 				322810751F59BD33007598B7 /* AppDelegate.m */,
 				322810771F59BD33007598B7 /* ViewController.h */,
@@ -73,10 +87,6 @@
 				3228107F1F59BD33007598B7 /* LaunchScreen.storyboard */,
 				322810821F59BD33007598B7 /* Info.plist */,
 				322810711F59BD33007598B7 /* Supporting Files */,
-				321392B81F60584900191983 /* CoffeeListViewController.h */,
-				321392B91F60584900191983 /* CoffeeListViewController.m */,
-				321392BB1F60585900191983 /* CarListViewController.h */,
-				321392BC1F60585900191983 /* CarListViewController.m */,
 			);
 			path = Less_8_UIElements;
 			sourceTree = "<group>";
@@ -87,6 +97,80 @@
 				322810721F59BD33007598B7 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3298A8231F61A6B500097194 /* CarMVC */ = {
+			isa = PBXGroup;
+			children = (
+				3298A8241F61A6B500097194 /* CarController */,
+				3298A8271F61A6B500097194 /* CarModel */,
+				3298A82A1F61A6B500097194 /* CarView */,
+			);
+			path = CarMVC;
+			sourceTree = "<group>";
+		};
+		3298A8241F61A6B500097194 /* CarController */ = {
+			isa = PBXGroup;
+			children = (
+				3298A8251F61A6B500097194 /* CarListViewController.h */,
+				3298A8261F61A6B500097194 /* CarListViewController.m */,
+			);
+			path = CarController;
+			sourceTree = "<group>";
+		};
+		3298A8271F61A6B500097194 /* CarModel */ = {
+			isa = PBXGroup;
+			children = (
+				3298A8281F61A6B500097194 /* CarModel.h */,
+				3298A8291F61A6B500097194 /* CarModel.m */,
+			);
+			path = CarModel;
+			sourceTree = "<group>";
+		};
+		3298A82A1F61A6B500097194 /* CarView */ = {
+			isa = PBXGroup;
+			children = (
+				3298A82B1F61A6B500097194 /* CarContentView.h */,
+				3298A82C1F61A6B500097194 /* CarContentView.m */,
+			);
+			path = CarView;
+			sourceTree = "<group>";
+		};
+		3298A82D1F61A6B500097194 /* CoffeeMVC */ = {
+			isa = PBXGroup;
+			children = (
+				3298A82E1F61A6B500097194 /* CoffeeController */,
+				3298A8311F61A6B500097194 /* CoffeeModel */,
+				3298A8341F61A6B500097194 /* CoffeeView */,
+			);
+			path = CoffeeMVC;
+			sourceTree = "<group>";
+		};
+		3298A82E1F61A6B500097194 /* CoffeeController */ = {
+			isa = PBXGroup;
+			children = (
+				3298A82F1F61A6B500097194 /* CoffeeListViewController.h */,
+				3298A8301F61A6B500097194 /* CoffeeListViewController.m */,
+			);
+			path = CoffeeController;
+			sourceTree = "<group>";
+		};
+		3298A8311F61A6B500097194 /* CoffeeModel */ = {
+			isa = PBXGroup;
+			children = (
+				3298A8321F61A6B500097194 /* CoffeeModel.h */,
+				3298A8331F61A6B500097194 /* CoffeeModel.m */,
+			);
+			path = CoffeeModel;
+			sourceTree = "<group>";
+		};
+		3298A8341F61A6B500097194 /* CoffeeView */ = {
+			isa = PBXGroup;
+			children = (
+				3298A8351F61A6B500097194 /* CoffeeContentView.h */,
+				3298A8361F61A6B500097194 /* CoffeeContentView.m */,
+			);
+			path = CoffeeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,11 +245,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				321392BD1F60585900191983 /* CarListViewController.m in Sources */,
+				3298A83C1F61A6B500097194 /* CoffeeContentView.m in Sources */,
+				3298A83A1F61A6B500097194 /* CoffeeListViewController.m in Sources */,
 				322810791F59BD33007598B7 /* ViewController.m in Sources */,
+				3298A8391F61A6B500097194 /* CarContentView.m in Sources */,
 				322810761F59BD33007598B7 /* AppDelegate.m in Sources */,
-				321392BA1F60584900191983 /* CoffeeListViewController.m in Sources */,
+				3298A83B1F61A6B500097194 /* CoffeeModel.m in Sources */,
+				3298A8381F61A6B500097194 /* CarModel.m in Sources */,
 				322810731F59BD33007598B7 /* main.m in Sources */,
+				3298A8371F61A6B500097194 /* CarListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

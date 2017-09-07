@@ -57,7 +57,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gb2-h7-g5p">
-                                <rect key="frame" x="16" y="64" width="288" height="455"/>
+                                <rect key="frame" x="16" y="64" width="288" height="380"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="carCell" id="0km-4b-dAO">
@@ -74,13 +74,23 @@
                                     <outlet property="delegate" destination="Tco-WI-IdL" id="d0X-bN-twB"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvm-kT-mLx">
+                                <rect key="frame" x="95" y="460" width="130" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="6sR-na-IPc"/>
+                                    <constraint firstAttribute="height" constant="40" id="eaT-tI-TPd"/>
+                                </constraints>
+                                <state key="normal" title="Generate the list"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="bvm-kT-mLx" firstAttribute="top" secondItem="Gb2-h7-g5p" secondAttribute="bottom" constant="16" id="0q8-1C-vlz"/>
                             <constraint firstItem="Gb2-h7-g5p" firstAttribute="top" secondItem="FhK-6y-6aC" secondAttribute="bottom" id="FFh-Yg-ejw"/>
-                            <constraint firstItem="cKy-58-wuu" firstAttribute="top" secondItem="Gb2-h7-g5p" secondAttribute="bottom" id="KIV-uB-jIx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Gb2-h7-g5p" secondAttribute="trailing" id="URq-61-q6B"/>
                             <constraint firstItem="Gb2-h7-g5p" firstAttribute="leading" secondItem="Ghe-7D-zMp" secondAttribute="leadingMargin" id="XpT-uO-KwB"/>
+                            <constraint firstItem="cKy-58-wuu" firstAttribute="top" secondItem="bvm-kT-mLx" secondAttribute="bottom" constant="19" id="hNX-8c-fuX"/>
+                            <constraint firstItem="bvm-kT-mLx" firstAttribute="centerX" secondItem="Ghe-7D-zMp" secondAttribute="centerX" id="ugu-LL-3ug"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Car List" id="TFN-hc-eYO"/>
@@ -136,7 +146,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6lS-AE-AIH">
-                                <rect key="frame" x="16" y="64" width="288" height="455"/>
+                                <rect key="frame" x="16" y="64" width="288" height="380"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="coffeeCell" id="Cgv-rh-E6V">
@@ -148,25 +158,44 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <sections/>
                                 <connections>
                                     <outlet property="dataSource" destination="mW0-wx-MXo" id="8WK-CB-bSU"/>
                                     <outlet property="delegate" destination="mW0-wx-MXo" id="LE8-P1-n2v"/>
                                 </connections>
                             </tableView>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" selectionStyle="default" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="1IY-KG-brU">
+                                <rect key="frame" x="26" y="74" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1IY-KG-brU" id="oxk-sB-Nod">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6o-5Y-OCS">
+                                <rect key="frame" x="95" y="460" width="130" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Fei-Mn-5EM"/>
+                                    <constraint firstAttribute="width" constant="130" id="iHk-Of-fM0"/>
+                                </constraints>
+                                <state key="normal" title="Generate the list"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="6lS-AE-AIH" firstAttribute="leading" secondItem="uMO-qS-wib" secondAttribute="leadingMargin" id="3kC-cn-blH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6lS-AE-AIH" secondAttribute="trailing" id="8WF-S2-pLa"/>
                             <constraint firstItem="6lS-AE-AIH" firstAttribute="top" secondItem="Ozk-dM-nGs" secondAttribute="bottom" id="C38-rz-xJU"/>
-                            <constraint firstItem="cHe-Eu-ujT" firstAttribute="top" secondItem="6lS-AE-AIH" secondAttribute="bottom" id="Ihy-YF-HEj"/>
+                            <constraint firstItem="cHe-Eu-ujT" firstAttribute="top" secondItem="c6o-5Y-OCS" secondAttribute="bottom" constant="19" id="IRv-h1-VkP"/>
+                            <constraint firstItem="c6o-5Y-OCS" firstAttribute="centerX" secondItem="uMO-qS-wib" secondAttribute="centerX" id="bLf-yY-9Ms"/>
+                            <constraint firstItem="c6o-5Y-OCS" firstAttribute="top" secondItem="6lS-AE-AIH" secondAttribute="bottom" constant="16" id="gzN-v6-mFw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Coffee List" id="i8p-9r-y2D"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WyX-uf-C9u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1103" y="896"/>
+            <point key="canvasLocation" x="1102.5" y="895.77464788732391"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="IIq-Tn-65H">
