@@ -10,4 +10,6 @@
 
 @interface CarContentView : UIView
 
+@property (weak, nonatomic) IBOutlet UITableView *carTableView;
+
 @end

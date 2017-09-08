@@ -8,6 +8,14 @@
 
 #import "CoffeeModel.h"
 
+@interface CoffeeModel ()
+
+
+
+@end
+
 @implementation CoffeeModel
+
+
 
 @end

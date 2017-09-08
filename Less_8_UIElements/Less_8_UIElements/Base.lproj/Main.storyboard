@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Car List-->
+        <!--Show Car List-->
         <scene sceneID="IeF-X3-Vc9">
             <objects>
                 <viewController id="3wc-Ws-OMg" customClass="ViewController" sceneMemberID="viewController">
@@ -26,7 +26,7 @@
                                 <rect key="frame" x="101" y="269" width="118" height="30"/>
                                 <state key="normal" title="Show List of cars"/>
                                 <connections>
-                                    <segue destination="Tco-WI-IdL" kind="show" id="3N2-DM-tGS"/>
+                                    <segue destination="Tco-WI-IdL" kind="show" id="qWt-a2-RDK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -36,7 +36,7 @@
                             <constraint firstItem="cpv-WQ-Pa2" firstAttribute="centerX" secondItem="s0i-oz-QUj" secondAttribute="centerX" id="o5T-5D-wZW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Car List" id="LKd-Pl-kXs">
+                    <navigationItem key="navigationItem" title="Show Car List" id="LKd-Pl-kXs">
                         <barButtonItem key="backBarButtonItem" title="Back" id="iTc-Wg-Vi9"/>
                     </navigationItem>
                 </viewController>
@@ -56,50 +56,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gb2-h7-g5p">
-                                <rect key="frame" x="16" y="64" width="288" height="380"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sSI-eF-t4j" customClass="CarContentView">
+                                <rect key="frame" x="16" y="64" width="288" height="455"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gb2-h7-g5p">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="409"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="carCell" id="0km-4b-dAO">
+                                                <rect key="frame" x="0.0" y="28" width="288" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0km-4b-dAO" id="Mph-Dh-BnD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Tco-WI-IdL" id="LOR-vI-PHs"/>
+                                            <outlet property="delegate" destination="Tco-WI-IdL" id="d0X-bN-twB"/>
+                                        </connections>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvm-kT-mLx">
+                                        <rect key="frame" x="79" y="417" width="130" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="130" id="6sR-na-IPc"/>
+                                            <constraint firstAttribute="height" constant="30" id="ab0-72-Bat"/>
+                                        </constraints>
+                                        <state key="normal" title="Refresh The Table"/>
+                                        <connections>
+                                            <action selector="refreshTheTable:" destination="Tco-WI-IdL" eventType="touchUpInside" id="SJc-0G-eX6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="carCell" id="0km-4b-dAO">
-                                        <rect key="frame" x="0.0" y="28" width="288" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0km-4b-dAO" id="Mph-Dh-BnD">
-                                            <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="Tco-WI-IdL" id="LOR-vI-PHs"/>
-                                    <outlet property="delegate" destination="Tco-WI-IdL" id="d0X-bN-twB"/>
-                                </connections>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvm-kT-mLx">
-                                <rect key="frame" x="95" y="460" width="130" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="6sR-na-IPc"/>
-                                    <constraint firstAttribute="height" constant="40" id="eaT-tI-TPd"/>
+                                    <constraint firstAttribute="bottom" secondItem="bvm-kT-mLx" secondAttribute="bottom" constant="8" id="3xF-vB-ACu"/>
+                                    <constraint firstAttribute="bottom" secondItem="bvm-kT-mLx" secondAttribute="bottom" constant="8" id="4Mw-Mh-NE6"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gb2-h7-g5p" secondAttribute="trailing" id="Dby-ja-uyK"/>
+                                    <constraint firstItem="bvm-kT-mLx" firstAttribute="top" secondItem="Gb2-h7-g5p" secondAttribute="bottom" constant="8" symbolic="YES" id="S5d-vf-cwP"/>
+                                    <constraint firstItem="Gb2-h7-g5p" firstAttribute="leading" secondItem="sSI-eF-t4j" secondAttribute="leading" id="bpq-gH-UvS"/>
+                                    <constraint firstItem="bvm-kT-mLx" firstAttribute="centerX" secondItem="sSI-eF-t4j" secondAttribute="centerX" id="sDB-JM-vWr"/>
+                                    <constraint firstItem="Gb2-h7-g5p" firstAttribute="top" secondItem="sSI-eF-t4j" secondAttribute="top" id="v4g-Xx-1Ch"/>
                                 </constraints>
-                                <state key="normal" title="Generate the list"/>
-                            </button>
+                                <connections>
+                                    <outlet property="carTableView" destination="Gb2-h7-g5p" id="yu6-0t-2EZ"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bvm-kT-mLx" firstAttribute="top" secondItem="Gb2-h7-g5p" secondAttribute="bottom" constant="16" id="0q8-1C-vlz"/>
-                            <constraint firstItem="Gb2-h7-g5p" firstAttribute="top" secondItem="FhK-6y-6aC" secondAttribute="bottom" id="FFh-Yg-ejw"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Gb2-h7-g5p" secondAttribute="trailing" id="URq-61-q6B"/>
-                            <constraint firstItem="Gb2-h7-g5p" firstAttribute="leading" secondItem="Ghe-7D-zMp" secondAttribute="leadingMargin" id="XpT-uO-KwB"/>
-                            <constraint firstItem="cKy-58-wuu" firstAttribute="top" secondItem="bvm-kT-mLx" secondAttribute="bottom" constant="19" id="hNX-8c-fuX"/>
-                            <constraint firstItem="bvm-kT-mLx" firstAttribute="centerX" secondItem="Ghe-7D-zMp" secondAttribute="centerX" id="ugu-LL-3ug"/>
+                            <constraint firstItem="cKy-58-wuu" firstAttribute="top" secondItem="sSI-eF-t4j" secondAttribute="bottom" id="ACP-57-mAn"/>
+                            <constraint firstItem="sSI-eF-t4j" firstAttribute="trailing" secondItem="Ghe-7D-zMp" secondAttribute="trailingMargin" id="IFR-Cf-mLE"/>
+                            <constraint firstItem="sSI-eF-t4j" firstAttribute="top" secondItem="FhK-6y-6aC" secondAttribute="bottom" id="fUp-qt-E5B"/>
+                            <constraint firstItem="sSI-eF-t4j" firstAttribute="leading" secondItem="Ghe-7D-zMp" secondAttribute="leadingMargin" id="k9O-Vr-m4a"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Car List" id="TFN-hc-eYO"/>
+                    <connections>
+                        <outlet property="carContentView" destination="sSI-eF-t4j" id="reZ-gG-c5k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sR6-gW-ebX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1103" y="1579"/>
+            <point key="canvasLocation" x="1102.5" y="1578.1690140845071"/>
         </scene>
-        <!--Coffee List-->
+        <!--Show Coffee List-->
         <scene sceneID="egX-fA-VM5">
             <objects>
                 <viewController id="FkX-s8-q4p" customClass="ViewController" sceneMemberID="viewController">
@@ -115,7 +137,7 @@
                                 <rect key="frame" x="90" y="269" width="140" height="30"/>
                                 <state key="normal" title="Show List of coffees"/>
                                 <connections>
-                                    <segue destination="mW0-wx-MXo" kind="show" id="do1-9f-tpH"/>
+                                    <segue destination="mW0-wx-MXo" kind="show" id="vQ1-u9-KQh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -125,7 +147,7 @@
                             <constraint firstItem="qTQ-sL-eEY" firstAttribute="centerX" secondItem="iuT-v4-njB" secondAttribute="centerX" id="xJu-4A-zdQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Coffee List" id="cII-7A-rPl">
+                    <navigationItem key="navigationItem" title="Show Coffee List" id="cII-7A-rPl">
                         <barButtonItem key="backBarButtonItem" title="Back" id="lcE-NM-9Vj"/>
                     </navigationItem>
                 </viewController>
@@ -145,50 +167,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6lS-AE-AIH">
-                                <rect key="frame" x="16" y="64" width="288" height="380"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2u-dX-g8O" customClass="CoffeeContentView">
+                                <rect key="frame" x="16" y="64" width="288" height="455"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6lS-AE-AIH">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="399"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="coffeeCell" id="Cgv-rh-E6V">
+                                                <rect key="frame" x="0.0" y="28" width="288" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cgv-rh-E6V" id="Osq-QM-2ei">
+                                                    <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <sections/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="mW0-wx-MXo" id="8WK-CB-bSU"/>
+                                            <outlet property="delegate" destination="mW0-wx-MXo" id="LE8-P1-n2v"/>
+                                        </connections>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6o-5Y-OCS">
+                                        <rect key="frame" x="79" y="407" width="130" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Fei-Mn-5EM"/>
+                                            <constraint firstAttribute="width" constant="130" id="iHk-Of-fM0"/>
+                                        </constraints>
+                                        <state key="normal" title="Refresh The Table"/>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="coffeeCell" id="Cgv-rh-E6V">
-                                        <rect key="frame" x="0.0" y="28" width="288" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cgv-rh-E6V" id="Osq-QM-2ei">
-                                            <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <sections/>
-                                <connections>
-                                    <outlet property="dataSource" destination="mW0-wx-MXo" id="8WK-CB-bSU"/>
-                                    <outlet property="delegate" destination="mW0-wx-MXo" id="LE8-P1-n2v"/>
-                                </connections>
-                            </tableView>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" selectionStyle="default" indentationWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="1IY-KG-brU">
-                                <rect key="frame" x="26" y="74" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1IY-KG-brU" id="oxk-sB-Nod">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6o-5Y-OCS">
-                                <rect key="frame" x="95" y="460" width="130" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Fei-Mn-5EM"/>
-                                    <constraint firstAttribute="width" constant="130" id="iHk-Of-fM0"/>
+                                    <constraint firstAttribute="trailing" secondItem="6lS-AE-AIH" secondAttribute="trailing" id="1CG-Ag-P8f"/>
+                                    <constraint firstItem="6lS-AE-AIH" firstAttribute="leading" secondItem="k2u-dX-g8O" secondAttribute="leading" id="4fy-2w-Q20"/>
+                                    <constraint firstItem="c6o-5Y-OCS" firstAttribute="top" secondItem="6lS-AE-AIH" secondAttribute="bottom" constant="8" id="6hC-RP-q2u"/>
+                                    <constraint firstItem="6lS-AE-AIH" firstAttribute="top" secondItem="k2u-dX-g8O" secondAttribute="top" id="Dy5-Hc-zGH"/>
+                                    <constraint firstItem="c6o-5Y-OCS" firstAttribute="centerX" secondItem="k2u-dX-g8O" secondAttribute="centerX" id="GQJ-29-Ijl"/>
+                                    <constraint firstAttribute="bottom" secondItem="c6o-5Y-OCS" secondAttribute="bottom" constant="8" id="mlu-DT-JKd"/>
                                 </constraints>
-                                <state key="normal" title="Generate the list"/>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6lS-AE-AIH" firstAttribute="leading" secondItem="uMO-qS-wib" secondAttribute="leadingMargin" id="3kC-cn-blH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6lS-AE-AIH" secondAttribute="trailing" id="8WF-S2-pLa"/>
-                            <constraint firstItem="6lS-AE-AIH" firstAttribute="top" secondItem="Ozk-dM-nGs" secondAttribute="bottom" id="C38-rz-xJU"/>
-                            <constraint firstItem="cHe-Eu-ujT" firstAttribute="top" secondItem="c6o-5Y-OCS" secondAttribute="bottom" constant="19" id="IRv-h1-VkP"/>
-                            <constraint firstItem="c6o-5Y-OCS" firstAttribute="centerX" secondItem="uMO-qS-wib" secondAttribute="centerX" id="bLf-yY-9Ms"/>
-                            <constraint firstItem="c6o-5Y-OCS" firstAttribute="top" secondItem="6lS-AE-AIH" secondAttribute="bottom" constant="16" id="gzN-v6-mFw"/>
+                            <constraint firstItem="cHe-Eu-ujT" firstAttribute="top" secondItem="k2u-dX-g8O" secondAttribute="bottom" id="I8p-PF-bEM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="k2u-dX-g8O" secondAttribute="trailing" id="Upo-EZ-hWd"/>
+                            <constraint firstItem="k2u-dX-g8O" firstAttribute="leading" secondItem="uMO-qS-wib" secondAttribute="leadingMargin" id="jmr-lM-hWa"/>
+                            <constraint firstItem="k2u-dX-g8O" firstAttribute="trailing" secondItem="uMO-qS-wib" secondAttribute="trailingMargin" id="mCN-mL-bqW"/>
+                            <constraint firstItem="k2u-dX-g8O" firstAttribute="top" secondItem="Ozk-dM-nGs" secondAttribute="bottom" id="mrI-Jq-7R5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Coffee List" id="i8p-9r-y2D"/>

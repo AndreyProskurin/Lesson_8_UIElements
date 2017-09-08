@@ -7,12 +7,15 @@
 //
 
 #import "CarListViewController.h"
+#import "CarModel.h"
+#import "CarContentView.h"
 
 static NSString *const carCellIdentifier = @"carCell";
 
 @interface CarListViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) NSArray *carModels;
+@property (strong, nonatomic) CarModel *carModel;
+@property (weak, nonatomic) IBOutlet CarContentView *carContentView;
 
 @end
 
@@ -21,20 +24,18 @@ static NSString *const carCellIdentifier = @"carCell";
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
-    self.carModels = @[@"Camry", @"Prius", @"RAV4", @"Corolla", @"Land Cruiser"];
+
+    self.carModel = [[CarModel alloc] init];
 }
 
-#pragma mark - UITableViewDelegate, UITableViewDataSource
+#pragma mark - UITableViewDelegate, UITableViewDataSource methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return self.carModels.count;
+    return self.carModel.carModelsArray.count;
 }
 
 
@@ -46,9 +47,20 @@ static NSString *const carCellIdentifier = @"carCell";
         carCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:carCellIdentifier];
     }
     
-    carCell.textLabel.text = [self.carModels objectAtIndex:indexPath.row];
+    carCell.textLabel.text = [self.carModel.carModelsArray objectAtIndex:indexPath.row];
     
     return carCell;
 }
+
+#pragma mark - Actions
+
+- (IBAction)refreshTheTable:(UIButton *)sender {
+    
+    [self.carModel refreshDataList:[CarModel listOfCars]];
+    [self.carContentView.carTableView reloadData];
+    
+}
+
+
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "CarModel.h"
 
 @interface AppDelegate ()
 

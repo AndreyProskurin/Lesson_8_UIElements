@@ -10,4 +10,9 @@
 
 @interface CarModel : NSObject
 
+@property (strong, nonatomic) NSMutableArray *carModelsArray;
+
++ (NSMutableArray *)listOfCars;
+- (void)refreshDataList:(NSArray *)array;
+
 @end
