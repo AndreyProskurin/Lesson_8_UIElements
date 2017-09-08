@@ -13,6 +13,7 @@
 		3228107C1F59BD33007598B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3228107A1F59BD33007598B7 /* Main.storyboard */; };
 		3228107E1F59BD33007598B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3228107D1F59BD33007598B7 /* Assets.xcassets */; };
 		322810811F59BD33007598B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3228107F1F59BD33007598B7 /* LaunchScreen.storyboard */; };
+		326EECFE1F62FC3100742CDF /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 326EECFD1F62FC3100742CDF /* TableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		3228107D1F59BD33007598B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		322810801F59BD33007598B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		322810821F59BD33007598B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		326EECFC1F62FC3100742CDF /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		326EECFD1F62FC3100742CDF /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				3228107F1F59BD33007598B7 /* LaunchScreen.storyboard */,
 				322810821F59BD33007598B7 /* Info.plist */,
 				322810711F59BD33007598B7 /* Supporting Files */,
+				326EECFC1F62FC3100742CDF /* TableViewController.h */,
+				326EECFD1F62FC3100742CDF /* TableViewController.m */,
 			);
 			path = Less_8_UIElements;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 				322810791F59BD33007598B7 /* ViewController.m in Sources */,
 				322810761F59BD33007598B7 /* AppDelegate.m in Sources */,
 				322810731F59BD33007598B7 /* main.m in Sources */,
+				326EECFE1F62FC3100742CDF /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +320,7 @@
 				322810871F59BD33007598B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
