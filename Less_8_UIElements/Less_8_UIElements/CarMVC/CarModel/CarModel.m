@@ -43,6 +43,9 @@
         NSString *string = [NSString stringWithFormat:@"Car Model: %@", [array objectAtIndex:arc4random() % array.count]];
         
         [mutArray addObject:string];
+        self.carModelsArray = [NSMutableArray array];
+        self.carModelsArray = [NSMutableArray arrayWithArray:mutArray];
+        
     }
 }
 
