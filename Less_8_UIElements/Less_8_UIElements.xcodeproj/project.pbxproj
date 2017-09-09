@@ -13,6 +13,8 @@
 		3228107C1F59BD33007598B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3228107A1F59BD33007598B7 /* Main.storyboard */; };
 		3228107E1F59BD33007598B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3228107D1F59BD33007598B7 /* Assets.xcassets */; };
 		322810811F59BD33007598B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3228107F1F59BD33007598B7 /* LaunchScreen.storyboard */; };
+		3237C09C1F63FE7300ECE969 /* CoffeeTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3237C09B1F63FE7300ECE969 /* CoffeeTableVC.m */; };
+		3237C09F1F63FF2200ECE969 /* CoffeeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3237C09E1F63FF2200ECE969 /* CoffeeModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		3228107D1F59BD33007598B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		322810801F59BD33007598B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		322810821F59BD33007598B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3237C09A1F63FE7300ECE969 /* CoffeeTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoffeeTableVC.h; sourceTree = "<group>"; };
+		3237C09B1F63FE7300ECE969 /* CoffeeTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoffeeTableVC.m; sourceTree = "<group>"; };
+		3237C09D1F63FF2200ECE969 /* CoffeeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoffeeModel.h; sourceTree = "<group>"; };
+		3237C09E1F63FF2200ECE969 /* CoffeeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoffeeModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,10 @@
 				3228107F1F59BD33007598B7 /* LaunchScreen.storyboard */,
 				322810821F59BD33007598B7 /* Info.plist */,
 				322810711F59BD33007598B7 /* Supporting Files */,
+				3237C09A1F63FE7300ECE969 /* CoffeeTableVC.h */,
+				3237C09B1F63FE7300ECE969 /* CoffeeTableVC.m */,
+				3237C09D1F63FF2200ECE969 /* CoffeeModel.h */,
+				3237C09E1F63FF2200ECE969 /* CoffeeModel.m */,
 			);
 			path = Less_8_UIElements;
 			sourceTree = "<group>";
@@ -154,6 +164,8 @@
 				322810791F59BD33007598B7 /* ViewController.m in Sources */,
 				322810761F59BD33007598B7 /* AppDelegate.m in Sources */,
 				322810731F59BD33007598B7 /* main.m in Sources */,
+				3237C09C1F63FE7300ECE969 /* CoffeeTableVC.m in Sources */,
+				3237C09F1F63FF2200ECE969 /* CoffeeModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +326,7 @@
 				322810871F59BD33007598B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
