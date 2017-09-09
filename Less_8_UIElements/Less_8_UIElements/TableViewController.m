@@ -140,7 +140,7 @@ static NSString *const cellIdentifier = @"cell";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UITableViewCell *)cell {
     
     ViewController *vc = [segue destinationViewController];
-    vc.titleVC = cell.textLabel.text;
+    vc.navigationItem.title = cell.textLabel.text;
     
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.

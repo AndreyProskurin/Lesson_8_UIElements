@@ -16,8 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.navigationItem.title = self.titleVC;
     // Do any additional setup after loading the view, typically from a nib.
 }
 

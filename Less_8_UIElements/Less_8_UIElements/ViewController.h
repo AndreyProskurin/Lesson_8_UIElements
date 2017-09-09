@@ -10,7 +10,7 @@
 
 @interface ViewController : UIViewController
 
-@property (strong, nonatomic) NSString *titleVC;
+//@property (strong, nonatomic) NSString *titleVC;
 
 @end
 
