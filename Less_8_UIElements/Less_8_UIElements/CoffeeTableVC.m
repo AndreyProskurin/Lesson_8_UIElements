@@ -8,6 +8,7 @@
 
 #import "CoffeeTableVC.h"
 #import "CoffeeModel.h"
+#import "ViewController.h"
 
 static NSString *const coffeeNameCellIdentifier = @"coffeeNameCellIdentifier";
 
@@ -60,6 +61,7 @@ static NSString *const coffeeNameCellIdentifier = @"coffeeNameCellIdentifier";
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.coffeeModel.coffeeList removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -68,21 +70,23 @@ static NSString *const coffeeNameCellIdentifier = @"coffeeNameCellIdentifier";
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
     
+    NSString *movableItem = [self.coffeeModel.coffeeList objectAtIndex:fromIndexPath.row];
+    NSString *staticItem = [self.coffeeModel.coffeeList objectAtIndex:toIndexPath.row];
+    
+    [self.coffeeModel.coffeeList replaceObjectAtIndex:toIndexPath.row withObject:movableItem];
+    [self.coffeeModel.coffeeList replaceObjectAtIndex:fromIndexPath.row withObject:staticItem];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
 
-
-
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UITableViewCell *)cell {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    ViewController *coffeeDescriptionVC = [segue destinationViewController];
+    coffeeDescriptionVC.navigationItem.title = cell.textLabel.text;
 }
-
 
 @end
