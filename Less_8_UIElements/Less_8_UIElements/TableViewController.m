@@ -40,22 +40,22 @@ static NSString *const cellIdentifier = @"cell";
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //#warning Incomplete implementation, return the number of sections
-    return 1;
+    return 2; // колличество секций.
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //#warning Incomplete implementation, return the number of rows
-    return self.arrayOfData.count;
+    return self.arrayOfData.count; // колличество ячеек в секции.
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
@@ -64,9 +64,9 @@ static NSString *const cellIdentifier = @"cell";
     return cell;
 }
 
-
-
 // Override to support conditional editing of the table view.
+// Возможность редактирования ячеек.
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     
@@ -80,6 +80,8 @@ static NSString *const cellIdentifier = @"cell";
 
 
 // Override to support editing the table view.
+// удаление или добавление ячеек таблицы
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
@@ -94,6 +96,8 @@ static NSString *const cellIdentifier = @"cell";
 
 
 // Override to support rearranging the table view.
+// Перемещение ячеек в таблице.
+
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
     
     // изменяем данные, чтоб изменения отображались корректно в интерфейсе (меняем местами элементы массива по индексу).
@@ -109,6 +113,7 @@ static NSString *const cellIdentifier = @"cell";
 
 // Override to support conditional rearranging of the table view.
 // возможность перетаскивания ячеек
+
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the item to be re-orderable.
     
@@ -126,7 +131,6 @@ static NSString *const cellIdentifier = @"cell";
     NSString *selectedCellString = self.arrayOfData[indexPath.row];
     NSLog(@"was selected %@", selectedCellString);
 }
-
 
 
 
