@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,6 +26,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="NYK-Ug-Min"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -33,9 +37,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="wF3-gL-1Uk"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" id="tFP-4o-2Gz"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dn8-jz-FhY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -53,20 +54,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description of coffee" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ci-9W-k5Y">
-                                <rect key="frame" x="16" y="367" width="288" height="181"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yYY-X9-MNT">
-                                <rect key="frame" x="16" y="72" width="288" height="232"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UTk-EE-68k">
+                                <rect key="frame" x="16" y="345" width="288" height="203"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="203" id="0Cl-6e-xLS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yYY-X9-MNT">
+                                <rect key="frame" x="16" y="74" width="288" height="263"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="263" id="toU-dz-SS8"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="UTk-EE-68k" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="9qK-RJ-Dd8"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="UTk-EE-68k" secondAttribute="bottom" constant="20" id="Xih-gk-6n0"/>
+                            <constraint firstItem="UTk-EE-68k" firstAttribute="leading" secondItem="yYY-X9-MNT" secondAttribute="leading" id="Yhj-Gb-IHJ"/>
+                            <constraint firstItem="yYY-X9-MNT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="mYN-Gr-01g"/>
+                            <constraint firstItem="yYY-X9-MNT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="r2T-Q7-LvG"/>
+                            <constraint firstItem="yYY-X9-MNT" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="rcW-dn-Wzo"/>
+                            <constraint firstItem="UTk-EE-68k" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="xQ7-to-e32"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="coffeeDescriptionTextView" destination="UTk-EE-68k" id="eSA-Kw-MXk"/>
+                        <outlet property="coffeeImageView" destination="yYY-X9-MNT" id="GIX-P5-3M1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

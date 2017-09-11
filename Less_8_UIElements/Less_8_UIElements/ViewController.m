@@ -7,8 +7,15 @@
 //
 
 #import "ViewController.h"
+#import "CoffeeModel.h"
 
 @interface ViewController ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *coffeeImageView;
+@property (weak, nonatomic) IBOutlet UITextView *coffeeDescriptionTextView;
+
+
+@property (strong, nonatomic) CoffeeModel *coffeeModel;
 
 @end
 
@@ -17,15 +24,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if (self.coffeeModel)
+    {
+        self.navigationItem.title = self.coffeeModel.coffeeName;
+        self.coffeeDescriptionTextView.text = self.coffeeModel.coffeeDescription;
+        
+        if (self.coffeeModel.coffeeImage)
+        {
+            self.coffeeImageView.image = self.coffeeModel.coffeeImage;
+        }
+    }
+
     
 }
-
-
-- (void)didReceiveMemoryWarning {
-    
-    [super didReceiveMemoryWarning];
-    
-}
-
 
 @end

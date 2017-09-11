@@ -10,7 +10,7 @@
 #import "CoffeeModel.h"
 #import "ViewController.h"
 
-static NSString *const coffeeNameCellIdentifier = @"coffeeNameCellIdentifier";
+static NSString *const coffeeNameCellIdentifier = @"coffeeNameCell";
 
 @interface CoffeeTableVC ()
 
@@ -23,11 +23,14 @@ static NSString *const coffeeNameCellIdentifier = @"coffeeNameCellIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.clearsSelectionOnViewWillAppear = YES;
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
     self.coffeeModel = [[CoffeeModel alloc] init];
 
+    
     NSLog(@"%@", self.coffeeModel.coffeeList);
-    self.clearsSelectionOnViewWillAppear = NO;
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 #pragma mark - UITableViewDataSource
@@ -51,7 +54,8 @@ static NSString *const coffeeNameCellIdentifier = @"coffeeNameCellIdentifier";
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:coffeeNameCellIdentifier];
     }
     
-    cell.textLabel.text = [self.coffeeModel.coffeeList objectAtIndex:indexPath.row];
+//    CoffeeModel *coffeeModel = self.coffeeModel.coffeeList[indexPath.row];
+    cell.textLabel.text = self.coffeeModel.coffeeList[indexPath.row];
     
     return cell;
 }
@@ -85,8 +89,12 @@ static NSString *const coffeeNameCellIdentifier = @"coffeeNameCellIdentifier";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UITableViewCell *)cell {
     
+//    NSIndexPath *selectedCellIndexPath = [self.tableView indexPathForCell:cell];
+//    CoffeeModel *coffeeModel = [self.coffeeModel.coffeeList objectAtIndex:selectedCellIndexPath.row];
+    
     ViewController *coffeeDescriptionVC = [segue destinationViewController];
     coffeeDescriptionVC.navigationItem.title = cell.textLabel.text;
+    
 }
 
 @end

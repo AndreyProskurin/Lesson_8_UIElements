@@ -7,12 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
 
 @interface CoffeeModel : NSObject
 
 @property (strong, nonatomic) NSString *coffeeName;
 @property (strong, nonatomic) NSNumber *coffeePrice;
 @property (strong, nonatomic) NSString *coffeeDescription;
+@property (strong, nonatomic) UIImage *coffeeImage;
 
 @property (strong, nonatomic) NSMutableArray *coffeeList;
 
