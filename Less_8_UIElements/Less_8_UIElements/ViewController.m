@@ -14,9 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *coffeeImageView;
 @property (weak, nonatomic) IBOutlet UITextView *coffeeDescriptionTextView;
 
-
-@property (strong, nonatomic) CoffeeModel *coffeeModel;
-
 @end
 
 @implementation ViewController

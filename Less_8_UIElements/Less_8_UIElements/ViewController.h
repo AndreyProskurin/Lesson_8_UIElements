@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CoffeeModel.h"
 
 @interface ViewController : UIViewController
 
-
+@property (strong, nonatomic) CoffeeModel *coffeeModel;
 
 @end
 

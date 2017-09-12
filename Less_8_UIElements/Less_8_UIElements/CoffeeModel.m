@@ -10,27 +10,24 @@
 
 @interface CoffeeModel ()
 
-//[NSMutableArray arrayWithObjects:@"Cappucino", @"Mocha", @"Latte",
-// @"Americano", @"Macchiato", @"Espresso",
-// @"Ristretto", @"Doppio", nil];
-
 @end
 
 @implementation CoffeeModel
 
-//- (instancetype)initWithCoffeeName:(NSString *)coffeeName coffeePrice:(NSNumber *)coffeePrice CoffeeDescription:(NSString *)coffeeDescription {
-//    
-//    self = [super init];
-//    if (self) {
-//        _coffeeName = coffeeName;
-//        _coffeePrice = coffeePrice;
-//        _coffeeDescription = coffeeDescription;
-//    }
-//    return self;
-//}
+- (instancetype)initWithCoffeeName:(NSString *)coffeeName coffeePrice:(NSNumber *)coffeePrice CoffeeDescription:(NSString *)coffeeDescription coffeeImage:(UIImage *)coffeeImage {
+    
+    self = [super init];
+    if (self) {
+        _coffeeName = coffeeName;
+        _coffeePrice = coffeePrice;
+        _coffeeDescription = coffeeDescription;
+        _coffeeImage = coffeeImage;
+    }
+    return self;
+}
 
 + (NSArray *)coffeeNameArray {
-    return @[@"Cappucino", @"Mocha", @"Latte", @"Americano",
+    return @[@"Cappuccino", @"Mocha", @"Latte", @"Americano",
              @"Macchiato", @"Espresso", @"Ristretto", @"Doppio"];
 }
 
@@ -55,11 +52,10 @@
     
     NSMutableDictionary *coffeeDescriptionDictionary = [NSMutableDictionary dictionary];
     
-    for (NSString *description in descriptionArray) {
-        for (NSUInteger i = 0; i < [[CoffeeModel coffeeNameArray] count]; i++) {
-            [coffeeDescriptionDictionary setObject:description forKey:[[CoffeeModel coffeeNameArray] objectAtIndex:i]];
-        }
+    for (NSUInteger i = 0; i < descriptionArray.count; i++) {
         
+        [coffeeDescriptionDictionary setObject:[descriptionArray objectAtIndex:i]
+                                        forKey:[[CoffeeModel coffeeNameArray] objectAtIndex:i]];
     }
     
     return coffeeDescriptionDictionary;
@@ -70,7 +66,18 @@
     if (!_coffeeList) {
         _coffeeList = [[NSMutableArray alloc] init];
         for (NSUInteger i = 0; i < [[CoffeeModel coffeeNameArray] count]; i++) {
-            [_coffeeList addObject:[[CoffeeModel coffeeNameArray] objectAtIndex:i]];
+            
+            NSString *currentCoffeeName = [[CoffeeModel coffeeNameArray] objectAtIndex:i];
+            NSNumber *currentCoffeePrice = [[CoffeeModel coffeePriceArray] objectAtIndex:i];
+            NSString *currentCoffeeDescription = [[CoffeeModel coffeeDescriptionDictionary] objectForKey:currentCoffeeName];
+            UIImage *coffeeImage = [UIImage imageNamed:currentCoffeeName];
+            
+            CoffeeModel *coffeeModel = [[CoffeeModel alloc] initWithCoffeeName:currentCoffeeName
+                                                                   coffeePrice:currentCoffeePrice
+                                                             CoffeeDescription:currentCoffeeDescription
+                                                                   coffeeImage:coffeeImage];
+            
+            [_coffeeList addObject:coffeeModel];
         }
     }
     
