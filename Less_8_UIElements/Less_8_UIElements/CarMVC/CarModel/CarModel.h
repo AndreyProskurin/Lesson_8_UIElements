@@ -13,6 +13,6 @@
 @property (strong, nonatomic) NSMutableArray *carModelsArray;
 
 + (NSMutableArray *)listOfCars;
-- (void)refreshDataList:(NSArray *)array;
+- (void)refreshDataList:(NSArray *)dataList;
 
 @end

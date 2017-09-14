@@ -25,26 +25,23 @@
 - (NSMutableArray *)carModelsArray {
     
     if (!_carModelsArray) {
-        _carModelsArray = [[NSMutableArray alloc] initWithObjects:@"Audi", @"Porsche", @"Honda", @"Lexus",
-                                                                  @"Mazda", @"Skoda", @"Opel", @"Lamborghini",
-                                                                  @"Nissan", @"Subaru", @"Dodge", @"Ford",
-                                                                  @"Tesla", @"Ferrari", @"Maserati", @"BMW", nil];
+        _carModelsArray = [CarModel listOfCars];
     }
     
     return _carModelsArray;
 }
 
-- (void)refreshDataList:(NSMutableArray *)array {
+- (void)refreshDataList:(NSMutableArray *)dataList {
     
-    NSMutableArray *mutArray = [NSMutableArray new];
+    NSMutableArray *tempArray = [NSMutableArray new];
     
-    for (NSUInteger i = 0; i < array.count; i++) {
+    for (NSUInteger i = 0; i < dataList.count; i++) {
         
-        NSString *string = [NSString stringWithFormat:@"Car Model: %@", [array objectAtIndex:arc4random() % array.count]];
+        NSString *string = [NSString stringWithFormat:@"%@", [dataList objectAtIndex:arc4random() % dataList.count]];
         
-        [mutArray addObject:string];
-        self.carModelsArray = [NSMutableArray array];
-        self.carModelsArray = [NSMutableArray arrayWithArray:mutArray];
+        [tempArray addObject:string];
+        self.carModelsArray = [[NSMutableArray alloc] init];
+        self.carModelsArray = [NSMutableArray arrayWithArray:tempArray];
         
     }
 }

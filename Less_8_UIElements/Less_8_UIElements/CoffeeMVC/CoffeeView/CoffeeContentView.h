@@ -10,6 +10,6 @@
 
 @interface CoffeeContentView : UIView
 
-
+@property (weak, nonatomic) IBOutlet UITableView *coffeeTableView;
 
 @end

@@ -7,12 +7,15 @@
 //
 
 #import "CoffeeListViewController.h"
+#import "CoffeeContentView.h"
+#import "CoffeeModel.h"
 
 static NSString *const coffeeCellIdentifier = @"coffeeCell";
 
 @interface CoffeeListViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) NSArray *arrayOfCoffeeNames;
+@property (strong, nonatomic) CoffeeModel *coffeeModel;
+@property (weak, nonatomic) IBOutlet CoffeeContentView *coffeeContentView;
 
 @end
 
@@ -22,7 +25,7 @@ static NSString *const coffeeCellIdentifier = @"coffeeCell";
     
     [super viewDidLoad];
     
-    self.arrayOfCoffeeNames = @[@"Espresso", @"Americano", @"Cappuccino", @"Latte", @"Russiano :D"];
+    self.coffeeModel = [[CoffeeModel alloc] init];
 }
 
 #pragma mark - UITableViewDelegate, UITableViewDataSource
@@ -34,7 +37,7 @@ static NSString *const coffeeCellIdentifier = @"coffeeCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return self.arrayOfCoffeeNames.count;
+    return self.coffeeModel.coffeeModelsArray.count;
 }
 
 
@@ -47,9 +50,20 @@ static NSString *const coffeeCellIdentifier = @"coffeeCell";
                                             reuseIdentifier:coffeeCellIdentifier];
     }
     
-    coffeeCell.textLabel.text = [self.arrayOfCoffeeNames objectAtIndex:indexPath.row];
+    coffeeCell.textLabel.text = [self.coffeeModel.coffeeModelsArray objectAtIndex:indexPath.row];
     
     return coffeeCell;
+}
+
+#pragma mark - Actions
+
+- (IBAction)refreshTheTable:(UIButton *)sender {
+    
+    [self.coffeeModel refreshDataList:self.coffeeModel.coffeeModelsArray];
+    [self.coffeeContentView.coffeeTableView reloadData];
+    
+    
+    
 }
 
 @end

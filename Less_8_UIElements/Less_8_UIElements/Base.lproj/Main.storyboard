@@ -196,6 +196,9 @@
                                             <constraint firstAttribute="width" constant="130" id="iHk-Of-fM0"/>
                                         </constraints>
                                         <state key="normal" title="Refresh The Table"/>
+                                        <connections>
+                                            <action selector="refreshTheTable:" destination="mW0-wx-MXo" eventType="touchUpInside" id="kEa-bA-CZB"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -207,6 +210,9 @@
                                     <constraint firstItem="c6o-5Y-OCS" firstAttribute="centerX" secondItem="k2u-dX-g8O" secondAttribute="centerX" id="GQJ-29-Ijl"/>
                                     <constraint firstAttribute="bottom" secondItem="c6o-5Y-OCS" secondAttribute="bottom" constant="8" id="mlu-DT-JKd"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="coffeeTableView" destination="6lS-AE-AIH" id="IyD-ua-XoT"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -219,6 +225,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Coffee List" id="i8p-9r-y2D"/>
+                    <connections>
+                        <outlet property="coffeeContentView" destination="k2u-dX-g8O" id="2qd-sf-Zh1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WyX-uf-C9u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

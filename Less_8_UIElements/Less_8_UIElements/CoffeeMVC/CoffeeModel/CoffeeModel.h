@@ -10,4 +10,9 @@
 
 @interface CoffeeModel : NSObject
 
+@property (strong, nonatomic) NSMutableArray *coffeeModelsArray;
+
++ (NSMutableArray *)listOfCoffees;
+- (void)refreshDataList:(NSArray *)dataList;
+
 @end
