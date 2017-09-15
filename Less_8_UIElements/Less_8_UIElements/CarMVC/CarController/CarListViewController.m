@@ -56,8 +56,8 @@ static NSString *const carCellIdentifier = @"carCell";
 
 - (IBAction)refreshTheTable:(UIButton *)sender {
     
-    [self.carContentView.carTableView reloadData];
     [self.carModel refreshDataList:self.carModel.carModelsArray];
+    [self.carContentView.carTableView reloadData];
     
     
 }

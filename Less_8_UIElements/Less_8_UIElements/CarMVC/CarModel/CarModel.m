@@ -34,16 +34,25 @@
 - (void)refreshDataList:(NSMutableArray *)dataList {
     
     NSMutableArray *tempArray = [NSMutableArray new];
+    NSMutableArray *indexes = [NSMutableArray array];
     
-    for (NSUInteger i = 0; i < dataList.count; i++) {
+    for (NSInteger index = 0; index < dataList.count; index++)
+    {
+        [indexes addObject:@(index)];
+    }
+    
+    while (indexes.count)
+    {
+        NSInteger randomValue = arc4random() % indexes.count;
+        NSInteger randomIndex = [[indexes objectAtIndex:randomValue] integerValue];
         
-        NSString *string = [NSString stringWithFormat:@"%@", [dataList objectAtIndex:arc4random() % dataList.count]];
+        NSString *string = dataList[randomIndex];
         
         [tempArray addObject:string];
-        self.carModelsArray = [[NSMutableArray alloc] init];
-        self.carModelsArray = [NSMutableArray arrayWithArray:tempArray];
-        
+        [indexes removeObjectAtIndex:randomValue];
     }
+    
+    self.carModelsArray = [NSMutableArray arrayWithArray:tempArray];
 }
 
 @end
